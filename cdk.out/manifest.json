@@ -1,0 +1,356 @@
+{
+  "version": "17.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "VpcTunnelStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "VpcTunnelStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "VpcTunnelStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://909861450833/eu-west-1",
+      "properties": {
+        "templateFile": "VpcTunnelStack.template.json",
+        "tags": {
+          "context": "ssh-example_with:mysql"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::909861450833:role/cdk-hnb659fds-deploy-role-909861450833-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::909861450833:role/cdk-hnb659fds-cfn-exec-role-909861450833-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-909861450833-eu-west-1/e4fe2f6b0f8ffbe626db69d281d9e97c89ef06d03a70b5068a9d74110afd91c7.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "VpcTunnelStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::909861450833:role/cdk-hnb659fds-lookup-role-909861450833-eu-west-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "VpcTunnelStack.assets"
+      ],
+      "metadata": {
+        "/VpcTunnelStack": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "context",
+                "Value": "ssh-example_with:mysql"
+              }
+            ]
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcA94D7A64"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/private subnetSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcprivatesubnetSubnet1Subnet7D42395A"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/private subnetSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcprivatesubnetSubnet1RouteTable85C7F7F6"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/private subnetSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcprivatesubnetSubnet1RouteTableAssociationDDF4C466"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/private subnetSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcprivatesubnetSubnet2SubnetA0D0A5F8"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/private subnetSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcprivatesubnetSubnet2RouteTable25E1F6EA"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/private subnetSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcprivatesubnetSubnet2RouteTableAssociationD7C7F358"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/vpce-sg/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcvpcesgB0C7B19C"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/ssmvpce/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcssmvpce59D7E37C"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/s3vpce/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcs3vpceC0A954B3"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/ecrvpce/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcecrvpce4A519AFA"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/dkr/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcdkr4617E203"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/ssmmessages/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcssmmessagesC3AA6C5A"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/cwl/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpccwlE29B2867"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/kms/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpckmsCECB5E7E"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/rds/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcrds54341172"
+          }
+        ],
+        "/VpcTunnelStack/example-vpc/rdsData/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "examplevpcrdsDataDCBF9D69"
+          }
+        ],
+        "/VpcTunnelStack/exampleeeeee-key/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "exampleeeeeekey48791774"
+          }
+        ],
+        "/VpcTunnelStack/exampleeeeee-key/Alias/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "exampleeeeeekeyAliasE78757E2"
+          }
+        ],
+        "/VpcTunnelStack/cluster/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "cluster611F8AFF"
+          }
+        ],
+        "/VpcTunnelStack/ssh-tunnel/TunnelTaskDefinition/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sshtunnelTunnelTaskDefinitionTaskRole2352F962"
+          }
+        ],
+        "/VpcTunnelStack/ssh-tunnel/TunnelTaskDefinition/TaskRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sshtunnelTunnelTaskDefinitionTaskRoleDefaultPolicy47219D48"
+          }
+        ],
+        "/VpcTunnelStack/ssh-tunnel/TunnelTaskDefinition/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sshtunnelTunnelTaskDefinitionFE843EAB"
+          }
+        ],
+        "/VpcTunnelStack/ssh-tunnel/TunnelTaskDefinition/ExecutionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sshtunnelTunnelTaskDefinitionExecutionRoleA9E7EC2B"
+          }
+        ],
+        "/VpcTunnelStack/ssh-tunnel/TunnelTaskDefinition/ExecutionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sshtunnelTunnelTaskDefinitionExecutionRoleDefaultPolicy8C11DEC9"
+          }
+        ],
+        "/VpcTunnelStack/ssh-tunnel/tunnel-sg": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "Ignoring Egress rule since 'allowAllOutbound' is set to true; To add customized rules, set allowAllOutbound=false on the SecurityGroup",
+            "trace": [
+              "Annotations.addMessage (/Users/bi.patel/Downloads/cdk-src/node_modules/aws-cdk-lib/core/lib/annotations.ts:99:25)",
+              "Annotations.addWarning (/Users/bi.patel/Downloads/cdk-src/node_modules/aws-cdk-lib/core/lib/annotations.ts:38:10)",
+              "SecurityGroup.addEgressRule (/Users/bi.patel/Downloads/cdk-src/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.ts:504:30)",
+              "new Tunnel (/Users/bi.patel/Downloads/cdk-src/lib/tunnel/tunnel.ts:73:8)",
+              "new CdkSrcStack (/Users/bi.patel/Downloads/cdk-src/lib/cdk-src-stack.ts:27:20)",
+              "Object.<anonymous> (/Users/bi.patel/Downloads/cdk-src/bin/cdk-src.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1126:14)",
+              "Module.m._compile (/Users/bi.patel/Downloads/cdk-src/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1180:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/bi.patel/Downloads/cdk-src/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (node:internal/modules/cjs/loader:1004:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:839:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "main (/Users/bi.patel/Downloads/cdk-src/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/bi.patel/Downloads/cdk-src/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1126:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1180:10)",
+              "Module.load (node:internal/modules/cjs/loader:1004:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:839:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:warning",
+            "data": "Ignoring Egress rule since 'allowAllOutbound' is set to true; To add customized rules, set allowAllOutbound=false on the SecurityGroup",
+            "trace": [
+              "Annotations.addMessage (/Users/bi.patel/Downloads/cdk-src/node_modules/aws-cdk-lib/core/lib/annotations.ts:99:25)",
+              "Annotations.addWarning (/Users/bi.patel/Downloads/cdk-src/node_modules/aws-cdk-lib/core/lib/annotations.ts:38:10)",
+              "SecurityGroup.addEgressRule (/Users/bi.patel/Downloads/cdk-src/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.ts:504:30)",
+              "new Tunnel (/Users/bi.patel/Downloads/cdk-src/lib/tunnel/tunnel.ts:74:8)",
+              "new CdkSrcStack (/Users/bi.patel/Downloads/cdk-src/lib/cdk-src-stack.ts:27:20)",
+              "Object.<anonymous> (/Users/bi.patel/Downloads/cdk-src/bin/cdk-src.ts:7:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1126:14)",
+              "Module.m._compile (/Users/bi.patel/Downloads/cdk-src/node_modules/ts-node/src/index.ts:1056:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1180:10)",
+              "Object.require.extensions.<computed> [as .ts] (/Users/bi.patel/Downloads/cdk-src/node_modules/ts-node/src/index.ts:1059:12)",
+              "Module.load (node:internal/modules/cjs/loader:1004:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:839:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "main (/Users/bi.patel/Downloads/cdk-src/node_modules/ts-node/src/bin.ts:198:14)",
+              "Object.<anonymous> (/Users/bi.patel/Downloads/cdk-src/node_modules/ts-node/src/bin.ts:288:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1126:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1180:10)",
+              "Module.load (node:internal/modules/cjs/loader:1004:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:839:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/VpcTunnelStack/ssh-tunnel/tunnel-sg/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sshtunneltunnelsg57A8BCED"
+          }
+        ],
+        "/VpcTunnelStack/ssh-tunnel/WebService/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sshtunnelWebServiceE089A4C4"
+          }
+        ],
+        "/VpcTunnelStack/ecs-log-group/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ecsloggroup34D5F64E"
+          }
+        ],
+        "/VpcTunnelStack/dbSecretKMSKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbSecretKMSKeyBBA7EAE4"
+          }
+        ],
+        "/VpcTunnelStack/dbSecretForUser/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbSecretForUser0C67CE8C"
+          }
+        ],
+        "/VpcTunnelStack/dbSecretForUser/Attachment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbSecretForUserAttachment9DA4D9D8"
+          }
+        ],
+        "/VpcTunnelStack/dbForUsers/ParamterGroupForMysqlDBBackend/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbForUsersParamterGroupForMysqlDBBackend18114266"
+          }
+        ],
+        "/VpcTunnelStack/dbForUsers/DataEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbForUsersDataEncryptionKey101AA96E"
+          }
+        ],
+        "/VpcTunnelStack/dbForUsers/dbForUsers/Subnets/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbForUsersSubnetsB429CC91"
+          }
+        ],
+        "/VpcTunnelStack/dbForUsers/dbForUsers/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbForUsersSecurityGroupA9553201"
+          }
+        ],
+        "/VpcTunnelStack/dbForUsers/dbForUsers/SecurityGroup/from 0.0.0.0_0:{IndirectPort}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbForUsersSecurityGroupfrom00000IndirectPort7E597BE8"
+          }
+        ],
+        "/VpcTunnelStack/dbForUsers/dbForUsers/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "dbForUsersCDBCE8A6"
+          }
+        ],
+        "/VpcTunnelStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/VpcTunnelStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/VpcTunnelStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "VpcTunnelStack"
+    }
+  }
+}

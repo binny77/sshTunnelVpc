@@ -1,0 +1,1262 @@
+{
+ "Resources": {
+  "vpcWithAuroraMysqlDB8C6169FC": {
+   "Type": "AWS::EC2::VPC",
+   "Properties": {
+    "CidrBlock": "10.10.42.0/24",
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "InstanceTenancy": "default",
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     },
+     {
+      "Key": "Name",
+      "Value": "CdkSrcStack/vpcWithAuroraMysqlDB"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "AvailabilityZone": "eu-west-1a",
+    "CidrBlock": "10.10.42.0/25",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "private subnet"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Isolated"
+     },
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     },
+     {
+      "Key": "Name",
+      "Value": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet1/Subnet"
+   }
+  },
+  "vpcWithAuroraMysqlDBprivatesubnetSubnet1RouteTable70ACA5CC": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     },
+     {
+      "Key": "Name",
+      "Value": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet1/RouteTable"
+   }
+  },
+  "vpcWithAuroraMysqlDBprivatesubnetSubnet1RouteTableAssociation430CD8B7": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1RouteTable70ACA5CC"
+    },
+    "SubnetId": {
+     "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet1/RouteTableAssociation"
+   }
+  },
+  "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77": {
+   "Type": "AWS::EC2::Subnet",
+   "Properties": {
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "AvailabilityZone": "eu-west-1b",
+    "CidrBlock": "10.10.42.128/25",
+    "MapPublicIpOnLaunch": false,
+    "Tags": [
+     {
+      "Key": "aws-cdk:subnet-name",
+      "Value": "private subnet"
+     },
+     {
+      "Key": "aws-cdk:subnet-type",
+      "Value": "Isolated"
+     },
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     },
+     {
+      "Key": "Name",
+      "Value": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet2/Subnet"
+   }
+  },
+  "vpcWithAuroraMysqlDBprivatesubnetSubnet2RouteTable0F2B05F5": {
+   "Type": "AWS::EC2::RouteTable",
+   "Properties": {
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     },
+     {
+      "Key": "Name",
+      "Value": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet2/RouteTable"
+   }
+  },
+  "vpcWithAuroraMysqlDBprivatesubnetSubnet2RouteTableAssociationB56B754A": {
+   "Type": "AWS::EC2::SubnetRouteTableAssociation",
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2RouteTable0F2B05F5"
+    },
+    "SubnetId": {
+     "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/private subnetSubnet2/RouteTableAssociation"
+   }
+  },
+  "vpcWithAuroraMysqlDBvpcesg578C6F70": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "CdkSrcStack/vpcWithAuroraMysqlDB/vpce-sg",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": {
+       "Fn::GetAtt": [
+        "vpcWithAuroraMysqlDB8C6169FC",
+        "CidrBlock"
+       ]
+      },
+      "Description": {
+       "Fn::Join": [
+        "",
+        [
+         "from ",
+         {
+          "Fn::GetAtt": [
+           "vpcWithAuroraMysqlDB8C6169FC",
+           "CidrBlock"
+          ]
+         },
+         ":443"
+        ]
+       ]
+      },
+      "FromPort": 443,
+      "IpProtocol": "tcp",
+      "ToPort": 443
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     },
+     {
+      "Key": "Name",
+      "Value": "CdkSrcStack/vpcWithAuroraMysqlDB"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/vpce-sg/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBssmvpceE9359894": {
+   "Type": "AWS::EC2::VPCEndpoint",
+   "Properties": {
+    "ServiceName": "com.amazonaws.eu-west-1.ssm",
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "PrivateDnsEnabled": true,
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "vpcWithAuroraMysqlDBvpcesg578C6F70",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+     }
+    ],
+    "VpcEndpointType": "Interface"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/ssmvpce/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBs3vpce0F2E2D54": {
+   "Type": "AWS::EC2::VPCEndpoint",
+   "Properties": {
+    "ServiceName": {
+     "Fn::Join": [
+      "",
+      [
+       "com.amazonaws.",
+       {
+        "Ref": "AWS::Region"
+       },
+       ".s3"
+      ]
+     ]
+    },
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "RouteTableIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1RouteTable70ACA5CC"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2RouteTable0F2B05F5"
+     }
+    ],
+    "VpcEndpointType": "Gateway"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/s3vpce/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBecrvpce07FC9050": {
+   "Type": "AWS::EC2::VPCEndpoint",
+   "Properties": {
+    "ServiceName": "com.amazonaws.eu-west-1.ecr.api",
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "PrivateDnsEnabled": true,
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "vpcWithAuroraMysqlDBvpcesg578C6F70",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+     }
+    ],
+    "VpcEndpointType": "Interface"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/ecrvpce/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBdkrB4354629": {
+   "Type": "AWS::EC2::VPCEndpoint",
+   "Properties": {
+    "ServiceName": "com.amazonaws.eu-west-1.ecr.dkr",
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "PrivateDnsEnabled": true,
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "vpcWithAuroraMysqlDBvpcesg578C6F70",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+     }
+    ],
+    "VpcEndpointType": "Interface"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/dkr/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBssmmessages8ABA1BFD": {
+   "Type": "AWS::EC2::VPCEndpoint",
+   "Properties": {
+    "ServiceName": "com.amazonaws.eu-west-1.ssmmessages",
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "PrivateDnsEnabled": true,
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "vpcWithAuroraMysqlDBvpcesg578C6F70",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+     }
+    ],
+    "VpcEndpointType": "Interface"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/ssmmessages/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBcwl29280E18": {
+   "Type": "AWS::EC2::VPCEndpoint",
+   "Properties": {
+    "ServiceName": "com.amazonaws.eu-west-1.logs",
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "PrivateDnsEnabled": true,
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "vpcWithAuroraMysqlDBvpcesg578C6F70",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+     }
+    ],
+    "VpcEndpointType": "Interface"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/cwl/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBkmsE8D867B5": {
+   "Type": "AWS::EC2::VPCEndpoint",
+   "Properties": {
+    "ServiceName": "com.amazonaws.eu-west-1.kms",
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "PrivateDnsEnabled": true,
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "vpcWithAuroraMysqlDBvpcesg578C6F70",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+     }
+    ],
+    "VpcEndpointType": "Interface"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/kms/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBrdsA469006A": {
+   "Type": "AWS::EC2::VPCEndpoint",
+   "Properties": {
+    "ServiceName": "com.amazonaws.eu-west-1.rds",
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "PrivateDnsEnabled": true,
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "vpcWithAuroraMysqlDBvpcesg578C6F70",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+     }
+    ],
+    "VpcEndpointType": "Interface"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/rds/Resource"
+   }
+  },
+  "vpcWithAuroraMysqlDBrdsDataACD5541A": {
+   "Type": "AWS::EC2::VPCEndpoint",
+   "Properties": {
+    "ServiceName": "com.amazonaws.eu-west-1.rds-data",
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    },
+    "PrivateDnsEnabled": true,
+    "SecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "vpcWithAuroraMysqlDBvpcesg578C6F70",
+       "GroupId"
+      ]
+     }
+    ],
+    "SubnetIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+     }
+    ],
+    "VpcEndpointType": "Interface"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/vpcWithAuroraMysqlDB/rdsData/Resource"
+   }
+  },
+  "examplekey236C1103": {
+   "Type": "AWS::KMS::Key",
+   "Properties": {
+    "KeyPolicy": {
+     "Statement": [
+      {
+       "Action": "kms:*",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::909861450833:root"
+          ]
+         ]
+        }
+       },
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/example-key/Resource"
+   }
+  },
+  "examplekeyAlias48D3223F": {
+   "Type": "AWS::KMS::Alias",
+   "Properties": {
+    "AliasName": "alias/ssh-kms-key",
+    "TargetKeyId": {
+     "Fn::GetAtt": [
+      "examplekey236C1103",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/example-key/Alias/Resource"
+   }
+  },
+  "cluster611F8AFF": {
+   "Type": "AWS::ECS::Cluster",
+   "Properties": {
+    "ClusterName": "ssh-cluster2",
+    "ClusterSettings": [
+     {
+      "Name": "containerInsights",
+      "Value": "disabled"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/cluster/Resource"
+   }
+  },
+  "sshtunnelTunnelTaskDefinitionTaskRole2352F962": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/ssh-tunnel/TunnelTaskDefinition/TaskRole/Resource"
+   }
+  },
+  "sshtunnelTunnelTaskDefinitionTaskRoleDefaultPolicy47219D48": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "ssm:PutParameter",
+       "Effect": "Allow",
+       "Resource": "arn:aws:ssm:eu-west-1:909861450833:parameter/*"
+      },
+      {
+       "Action": [
+        "kms:ListAliases",
+        "logs:CreateLogStream",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:PutLogEvents",
+        "ssmmessages:CreateControlChannel",
+        "ssmmessages:CreateDataChannel",
+        "ssmmessages:OpenControlChannel",
+        "ssmmessages:OpenDataChannel"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey*",
+        "kms:ReEncrypt*"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "examplekey236C1103",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "sshtunnelTunnelTaskDefinitionTaskRoleDefaultPolicy47219D48",
+    "Roles": [
+     {
+      "Ref": "sshtunnelTunnelTaskDefinitionTaskRole2352F962"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/ssh-tunnel/TunnelTaskDefinition/TaskRole/DefaultPolicy/Resource"
+   }
+  },
+  "sshtunnelTunnelTaskDefinitionFE843EAB": {
+   "Type": "AWS::ECS::TaskDefinition",
+   "Properties": {
+    "ContainerDefinitions": [
+     {
+      "Environment": [
+       {
+        "Name": "KEY_ID",
+        "Value": {
+         "Ref": "examplekey236C1103"
+        }
+       }
+      ],
+      "Essential": true,
+      "Image": {
+       "Fn::Sub": "909861450833.dkr.ecr.eu-west-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-909861450833-eu-west-1:d9284d169362e275361ebc91f68ba569356fa21afafb8cd65acaefaee108692c"
+      },
+      "LogConfiguration": {
+       "LogDriver": "awslogs",
+       "Options": {
+        "awslogs-group": {
+         "Ref": "ecsloggroup34D5F64E"
+        },
+        "awslogs-stream-prefix": "ecs-ssh-tunnel",
+        "awslogs-region": "eu-west-1"
+       }
+      },
+      "Name": "ssh-tunnel"
+     }
+    ],
+    "Cpu": "512",
+    "ExecutionRoleArn": {
+     "Fn::GetAtt": [
+      "sshtunnelTunnelTaskDefinitionExecutionRoleA9E7EC2B",
+      "Arn"
+     ]
+    },
+    "Family": "CdkSrcStacksshtunnelTunnelTaskDefinition46489CEB",
+    "Memory": "1024",
+    "NetworkMode": "awsvpc",
+    "RequiresCompatibilities": [
+     "FARGATE"
+    ],
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ],
+    "TaskRoleArn": {
+     "Fn::GetAtt": [
+      "sshtunnelTunnelTaskDefinitionTaskRole2352F962",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/ssh-tunnel/TunnelTaskDefinition/Resource"
+   }
+  },
+  "sshtunnelTunnelTaskDefinitionExecutionRoleA9E7EC2B": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "ecs-tasks.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/ssh-tunnel/TunnelTaskDefinition/ExecutionRole/Resource"
+   }
+  },
+  "sshtunnelTunnelTaskDefinitionExecutionRoleDefaultPolicy8C11DEC9": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:BatchGetImage",
+        "ecr:GetDownloadUrlForLayer"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":ecr:eu-west-1:909861450833:repository/cdk-hnb659fds-container-assets-909861450833-eu-west-1"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "ecr:GetAuthorizationToken",
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "ecsloggroup34D5F64E",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "sshtunnelTunnelTaskDefinitionExecutionRoleDefaultPolicy8C11DEC9",
+    "Roles": [
+     {
+      "Ref": "sshtunnelTunnelTaskDefinitionExecutionRoleA9E7EC2B"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/ssh-tunnel/TunnelTaskDefinition/ExecutionRole/DefaultPolicy/Resource"
+   }
+  },
+  "sshtunneltunnelsg57A8BCED": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "CdkSrcStack/ssh-tunnel/tunnel-sg",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/ssh-tunnel/tunnel-sg/Resource"
+   }
+  },
+  "sshtunnelWebServiceE089A4C4": {
+   "Type": "AWS::ECS::Service",
+   "Properties": {
+    "Cluster": {
+     "Ref": "cluster611F8AFF"
+    },
+    "DeploymentConfiguration": {
+     "MaximumPercent": 200,
+     "MinimumHealthyPercent": 50
+    },
+    "DesiredCount": 1,
+    "EnableECSManagedTags": false,
+    "EnableExecuteCommand": true,
+    "LaunchType": "FARGATE",
+    "NetworkConfiguration": {
+     "AwsvpcConfiguration": {
+      "AssignPublicIp": "DISABLED",
+      "SecurityGroups": [
+       {
+        "Fn::GetAtt": [
+         "sshtunneltunnelsg57A8BCED",
+         "GroupId"
+        ]
+       }
+      ],
+      "Subnets": [
+       {
+        "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+       },
+       {
+        "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+       }
+      ]
+     }
+    },
+    "ServiceName": "ssh-tunnel",
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ],
+    "TaskDefinition": {
+     "Ref": "sshtunnelTunnelTaskDefinitionFE843EAB"
+    }
+   },
+   "DependsOn": [
+    "vpcWithAuroraMysqlDBcwl29280E18",
+    "vpcWithAuroraMysqlDBdkrB4354629",
+    "vpcWithAuroraMysqlDBecrvpce07FC9050",
+    "vpcWithAuroraMysqlDBkmsE8D867B5",
+    "vpcWithAuroraMysqlDBs3vpce0F2E2D54",
+    "vpcWithAuroraMysqlDBssmmessages8ABA1BFD",
+    "vpcWithAuroraMysqlDBssmvpceE9359894"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/ssh-tunnel/WebService/Service"
+   }
+  },
+  "ecsloggroup34D5F64E": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": "ssh-example-tunnel-lg",
+    "RetentionInDays": 1,
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/ecs-log-group/Resource"
+   }
+  },
+  "dbSecretKMSKey2595865F5": {
+   "Type": "AWS::KMS::Key",
+   "Properties": {
+    "KeyPolicy": {
+     "Statement": [
+      {
+       "Action": "kms:*",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::909861450833:root"
+          ]
+         ]
+        }
+       },
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:GenerateDataKey*",
+        "kms:ReEncrypt*"
+       ],
+       "Condition": {
+        "StringEquals": {
+         "kms:ViaService": "secretsmanager.eu-west-1.amazonaws.com"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::909861450833:root"
+          ]
+         ]
+        }
+       },
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Description": "DB Secret Encryption Key2",
+    "EnableKeyRotation": true,
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/dbSecretKMSKey2/Resource"
+   }
+  },
+  "dbSecretSSHTunnelingB7ACC9AD": {
+   "Type": "AWS::SecretsManager::Secret",
+   "Properties": {
+    "Description": {
+     "Fn::Join": [
+      "",
+      [
+       "Generated by the CDK for stack: ",
+       {
+        "Ref": "AWS::StackName"
+       }
+      ]
+     ]
+    },
+    "GenerateSecretString": {
+     "ExcludeCharacters": " %+~`#$&*()|[]{}:;<>?!'/@\"\\",
+     "GenerateStringKey": "password",
+     "PasswordLength": 30,
+     "SecretStringTemplate": "{\"username\":\"userService2\"}"
+    },
+    "KmsKeyId": {
+     "Fn::GetAtt": [
+      "dbSecretKMSKey2595865F5",
+      "Arn"
+     ]
+    },
+    "Name": "dbSecretSSHTunneling",
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/dbSecretSSHTunneling/Resource"
+   }
+  },
+  "dbSecretSSHTunnelingAttachment2E46F539": {
+   "Type": "AWS::SecretsManager::SecretTargetAttachment",
+   "Properties": {
+    "SecretId": {
+     "Ref": "dbSecretSSHTunnelingB7ACC9AD"
+    },
+    "TargetId": {
+     "Ref": "dbForSSHTunneling0EC8E74D"
+    },
+    "TargetType": "AWS::RDS::DBCluster"
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/dbSecretSSHTunneling/Attachment/Resource"
+   }
+  },
+  "dbForSSHTunnelingParamterGroupForMysqlDBBackend3537429F": {
+   "Type": "AWS::RDS::DBClusterParameterGroup",
+   "Properties": {
+    "Description": "Parameter Group for Testing with MySQL",
+    "Family": "aurora-mysql5.7",
+    "Parameters": {},
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/dbForSSHTunneling/ParamterGroupForMysqlDBBackend/Resource"
+   }
+  },
+  "dbForSSHTunnelingDataEncryptionKeyD9B548F1": {
+   "Type": "AWS::KMS::Key",
+   "Properties": {
+    "KeyPolicy": {
+     "Statement": [
+      {
+       "Action": "kms:*",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":iam::909861450833:root"
+          ]
+         ]
+        }
+       },
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Description": "Key for DB Cluster encryption",
+    "EnableKeyRotation": true,
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/dbForSSHTunneling/DataEncryptionKey/Resource"
+   }
+  },
+  "dbForSSHTunnelingSubnets1B6F85B8": {
+   "Type": "AWS::RDS::DBSubnetGroup",
+   "Properties": {
+    "DBSubnetGroupDescription": "Subnets for dbForSSHTunneling database",
+    "SubnetIds": [
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet1SubnetC9D122E8"
+     },
+     {
+      "Ref": "vpcWithAuroraMysqlDBprivatesubnetSubnet2Subnet12C43E77"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/dbForSSHTunneling/dbForSSHTunneling/Subnets/Default"
+   }
+  },
+  "dbForSSHTunnelingSecurityGroupEDCFAB6E": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "RDS security group",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ],
+    "VpcId": {
+     "Ref": "vpcWithAuroraMysqlDB8C6169FC"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/dbForSSHTunneling/dbForSSHTunneling/SecurityGroup/Resource"
+   }
+  },
+  "dbForSSHTunnelingSecurityGroupfrom00000IndirectPort8CA35E05": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "IpProtocol": "tcp",
+    "CidrIp": "0.0.0.0/0",
+    "Description": "from 0.0.0.0/0:{IndirectPort}",
+    "FromPort": {
+     "Fn::GetAtt": [
+      "dbForSSHTunneling0EC8E74D",
+      "Endpoint.Port"
+     ]
+    },
+    "GroupId": {
+     "Fn::GetAtt": [
+      "dbForSSHTunnelingSecurityGroupEDCFAB6E",
+      "GroupId"
+     ]
+    },
+    "ToPort": {
+     "Fn::GetAtt": [
+      "dbForSSHTunneling0EC8E74D",
+      "Endpoint.Port"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/dbForSSHTunneling/dbForSSHTunneling/SecurityGroup/from 0.0.0.0_0:{IndirectPort}"
+   }
+  },
+  "dbForSSHTunneling0EC8E74D": {
+   "Type": "AWS::RDS::DBCluster",
+   "Properties": {
+    "Engine": "aurora-mysql",
+    "DatabaseName": "dbForSSHTunneling",
+    "DBClusterParameterGroupName": {
+     "Ref": "dbForSSHTunnelingParamterGroupForMysqlDBBackend3537429F"
+    },
+    "DBSubnetGroupName": {
+     "Ref": "dbForSSHTunnelingSubnets1B6F85B8"
+    },
+    "EnableHttpEndpoint": true,
+    "EngineMode": "serverless",
+    "KmsKeyId": {
+     "Fn::GetAtt": [
+      "dbForSSHTunnelingDataEncryptionKeyD9B548F1",
+      "Arn"
+     ]
+    },
+    "MasterUsername": {
+     "Fn::Join": [
+      "",
+      [
+       "{{resolve:secretsmanager:",
+       {
+        "Ref": "dbSecretSSHTunnelingB7ACC9AD"
+       },
+       ":SecretString:username::}}"
+      ]
+     ]
+    },
+    "MasterUserPassword": {
+     "Fn::Join": [
+      "",
+      [
+       "{{resolve:secretsmanager:",
+       {
+        "Ref": "dbSecretSSHTunnelingB7ACC9AD"
+       },
+       ":SecretString:password::}}"
+      ]
+     ]
+    },
+    "StorageEncrypted": true,
+    "Tags": [
+     {
+      "Key": "context",
+      "Value": "ssh-example_with:mysql"
+     }
+    ],
+    "VpcSecurityGroupIds": [
+     {
+      "Fn::GetAtt": [
+       "dbForSSHTunnelingSecurityGroupEDCFAB6E",
+       "GroupId"
+      ]
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Snapshot",
+   "DeletionPolicy": "Snapshot",
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/dbForSSHTunneling/dbForSSHTunneling/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/21SwXLiMAz9lt6Nu+WwPVPodpjtgQmdXjvCiKyaxGYkhw6Tyb9XdgK0bE+Sn56tpydP7XRqf93Ah0zctprUtLHdOoKrjEJvHbqp7V73zsx3/nU1NyumA0RctxuPMYGXrAhtxBfY1HjBL9hMJDiCSMGbNbqWKR6fOLT7TP4GLH1E3oFD7fvot/tAPo79z8cnFfEBxyvGt3eWvmQU6U3ViO3+4jExUpjVBJIOOekNOq3P61a0bYJP6R/gEpJ8qRa4I09ZvBKukeAjkEf+go1318gHcoMhQ9obgsZ2RRhsynEVanJZ3pAlSfwGIhjFLoKrkJcNlMlDtVprtsB9EIqBjw8gaOpQ6gjPoTw7esp7w1stLSDCRplqEOsTK2BoUGc88xcP49RXpaQauVYfT64Mi/1y8T9gZPZGcjdpwKt4Vo/zhpKAIbyoSRhnUb/bvwbPK/yh0vemQAktq5fZBf2iJfkyWzgWeuPDFu273B7uftu7e/3V70I04dZHatAWQ/wEw9aKsvECAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "CdkSrcStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

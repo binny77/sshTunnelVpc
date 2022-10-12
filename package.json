@@ -1,0 +1,24 @@
+{
+  "name": "cdk-src",
+  "version": "0.1.0",
+  "bin": {
+    "cdk-src": "bin/cdk-src.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "10.17.27",
+    "aws-cdk": "2.22.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@vw-sre/vws-cdk": "^2.6.0",
+    "aws-cdk-lib": "2.22.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.16"
+  }
+}
