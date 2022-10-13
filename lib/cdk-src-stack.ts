@@ -38,13 +38,13 @@ export class CdkSrcStack extends Stack {
       description: 'DB Secret Encryption Key2',
     });
 
-    const dbSecretForUser = new DatabaseSecret(this, 'dbSecretForUser', {
-      secretName: 'dbSecretForUser',
+    const dbSecretForUser = new DatabaseSecret(this, 'dbSecretForSSHTunneling', {
+      secretName: 'dbSecretForSSHTunneling',
       username: 'userService',
       encryptionKey: dbSecretKey,
     });
 
-    new AuroraDB(this, 'dbForUsers', {
+    new AuroraDB(this, 'dbForSSHTunneling', {
       vpc,
       secret: dbSecretForUser,
       databaseName: 'dbForUsers',
