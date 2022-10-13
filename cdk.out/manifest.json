@@ -26,7 +26,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::909861450833:role/cdk-hnb659fds-deploy-role-909861450833-eu-west-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::909861450833:role/cdk-hnb659fds-cfn-exec-role-909861450833-eu-west-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-909861450833-eu-west-1/e4fe2f6b0f8ffbe626db69d281d9e97c89ef06d03a70b5068a9d74110afd91c7.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-909861450833-eu-west-1/a17dd34cfa77722e2c7c82de2ac27a45e9cada7106071bcfea72cb5b7be24e44.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -155,16 +155,16 @@
             "data": "examplevpcrdsDataDCBF9D69"
           }
         ],
-        "/VpcTunnelStack/exampleeeeee-key/Resource": [
+        "/VpcTunnelStack/example-key/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "exampleeeeeekey48791774"
+            "data": "examplekey236C1103"
           }
         ],
-        "/VpcTunnelStack/exampleeeeee-key/Alias/Resource": [
+        "/VpcTunnelStack/example-key/Alias/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "exampleeeeeekeyAliasE78757E2"
+            "data": "examplekeyAlias48D3223F"
           }
         ],
         "/VpcTunnelStack/cluster/Resource": [

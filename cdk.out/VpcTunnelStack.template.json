@@ -485,7 +485,7 @@
     "aws:cdk:path": "VpcTunnelStack/example-vpc/rdsData/Resource"
    }
   },
-  "exampleeeeeekey48791774": {
+  "examplekey236C1103": {
    "Type": "AWS::KMS::Key",
    "Properties": {
     "KeyPolicy": {
@@ -522,22 +522,22 @@
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "VpcTunnelStack/exampleeeeee-key/Resource"
+    "aws:cdk:path": "VpcTunnelStack/example-key/Resource"
    }
   },
-  "exampleeeeeekeyAliasE78757E2": {
+  "examplekeyAlias48D3223F": {
    "Type": "AWS::KMS::Alias",
    "Properties": {
     "AliasName": "alias/ssh-kms-key",
     "TargetKeyId": {
      "Fn::GetAtt": [
-      "exampleeeeeekey48791774",
+      "examplekey236C1103",
       "Arn"
      ]
     }
    },
    "Metadata": {
-    "aws:cdk:path": "VpcTunnelStack/exampleeeeee-key/Alias/Resource"
+    "aws:cdk:path": "VpcTunnelStack/example-key/Alias/Resource"
    }
   },
   "cluster611F8AFF": {
@@ -622,7 +622,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "exampleeeeeekey48791774",
+         "examplekey236C1103",
          "Arn"
         ]
        }
@@ -650,7 +650,7 @@
        {
         "Name": "KEY_ID",
         "Value": {
-         "Ref": "exampleeeeeekey48791774"
+         "Ref": "examplekey236C1103"
         }
        }
       ],
