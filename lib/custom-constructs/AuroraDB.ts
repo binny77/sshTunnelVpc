@@ -1,8 +1,6 @@
 import { Construct } from 'constructs';
 import { IVpc } from 'aws-cdk-lib/aws-ec2';
 import {
-  //AuroraPostgresEngineVersion,
-  MysqlEngineVersion,
   Credentials,
   DatabaseClusterEngine,
   ParameterGroup,
@@ -26,20 +24,6 @@ export class AuroraDB extends Construct {
   constructor(scope: Construct, id: string, props: AuroraDBProbs) {
     super(scope, id);
 
-    const parameterGroup = new ParameterGroup(
-      this,
-      'ParamterGroupForMysqlDBBackend',
-      {
-        engine: DatabaseClusterEngine.auroraMysql({
-          version: AuroraMysqlEngineVersion.VER_5_7_12,
-        }),
-        description: 'Parameter Group for Testing with MySQL',
-        parameters: {
-      
-        },
-      },
-    );
-
     const dataEncryptionKey = new Key(this, 'DataEncryptionKey', {
       enableKeyRotation: true,
       description: 'Key for DB Cluster encryption',
@@ -48,7 +32,6 @@ export class AuroraDB extends Construct {
     this.serverlessCluster = new ServerlessCluster(this, id, {
       defaultDatabaseName: props.databaseName,
       engine: DatabaseClusterEngine.AURORA_MYSQL,
-      parameterGroup,
       vpc: props.vpc,
       vpcSubnets: { subnetGroupName: Config.appSubnetName },
       enableDataApi: true,
