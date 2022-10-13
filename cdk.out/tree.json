@@ -732,13 +732,13 @@
               "version": "2.22.0"
             }
           },
-          "exampleeeeee-key": {
-            "id": "exampleeeeee-key",
-            "path": "VpcTunnelStack/exampleeeeee-key",
+          "example-key": {
+            "id": "example-key",
+            "path": "VpcTunnelStack/example-key",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "VpcTunnelStack/exampleeeeee-key/Resource",
+                "path": "VpcTunnelStack/example-key/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::KMS::Key",
                   "aws:cdk:cloudformation:props": {
@@ -781,18 +781,18 @@
               },
               "Alias": {
                 "id": "Alias",
-                "path": "VpcTunnelStack/exampleeeeee-key/Alias",
+                "path": "VpcTunnelStack/example-key/Alias",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "VpcTunnelStack/exampleeeeee-key/Alias/Resource",
+                    "path": "VpcTunnelStack/example-key/Alias/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::KMS::Alias",
                       "aws:cdk:cloudformation:props": {
                         "aliasName": "alias/ssh-kms-key",
                         "targetKeyId": {
                           "Fn::GetAtt": [
-                            "exampleeeeeekey48791774",
+                            "examplekey236C1103",
                             "Arn"
                           ]
                         }
@@ -936,7 +936,7 @@
                                       "Effect": "Allow",
                                       "Resource": {
                                         "Fn::GetAtt": [
-                                          "exampleeeeeekey48791774",
+                                          "examplekey236C1103",
                                           "Arn"
                                         ]
                                       }
@@ -996,7 +996,7 @@
                               {
                                 "name": "KEY_ID",
                                 "value": {
-                                  "Ref": "exampleeeeeekey48791774"
+                                  "Ref": "examplekey236C1103"
                                 }
                               }
                             ]

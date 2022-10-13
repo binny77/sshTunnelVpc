@@ -1,7 +1,7 @@
 {
   "version": "17.0.0",
   "files": {
-    "e4fe2f6b0f8ffbe626db69d281d9e97c89ef06d03a70b5068a9d74110afd91c7": {
+    "a17dd34cfa77722e2c7c82de2ac27a45e9cada7106071bcfea72cb5b7be24e44": {
       "source": {
         "path": "VpcTunnelStack.template.json",
         "packaging": "file"
@@ -9,7 +9,7 @@
       "destinations": {
         "909861450833-eu-west-1": {
           "bucketName": "cdk-hnb659fds-assets-909861450833-eu-west-1",
-          "objectKey": "e4fe2f6b0f8ffbe626db69d281d9e97c89ef06d03a70b5068a9d74110afd91c7.json",
+          "objectKey": "a17dd34cfa77722e2c7c82de2ac27a45e9cada7106071bcfea72cb5b7be24e44.json",
           "region": "eu-west-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::909861450833:role/cdk-hnb659fds-file-publishing-role-909861450833-eu-west-1"
         }
